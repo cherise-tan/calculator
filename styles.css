@@ -1,0 +1,38 @@
+#calculator {
+    width: 15rem;
+    height:16rem;
+    background-color: darkgray;
+    text-align: center;
+}
+
+#answer {
+    width: 85%;
+    height: 2rem;   
+    padding: 0;
+    margin: 1rem;
+}
+
+.row {
+    width: 100%;
+
+}
+
+button {
+    height: 2rem;
+    padding: 0;
+    margin: 0.1rem;
+
+}
+
+.small-width {
+    width: 3rem;
+
+}
+
+.medium-width {
+    width: 4.7rem;
+}
+
+.largest-width {
+    width: 6.5rem;
+}
