@@ -1,13 +1,13 @@
 #calculator {
     width: 15.5rem;
     height: 17.5rem;
-    background-color: rgb(65, 65, 78);
+    background-color: #5D6B78;
     text-align: center;
     padding: 0.5rem;
     margin: auto;
     margin-top: 5rem;
     border-radius: 5px;
-    border: 1px solid #5C5757;
+    border: 1px solid silver;
 }
 
 #screen {
