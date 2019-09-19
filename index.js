@@ -4,22 +4,21 @@ var equation = [];
 // Create an empty display string - this is what will display on the calculator screen
 var display = "";
 
-// Select all elements called 'button'
+// Define html elements
 var buttons = document.getElementsByClassName("btn");
-
-// Define screen element
 var screen = document.getElementById("screen");
 
-// Add an event handler to the buttons, listening for click
+// Add event handlers to the buttons
 for (var button of buttons) {
-    // Specify an event handler function to:
     button.addEventListener("click", function () {
 
-        // first define a variable and assign it to the value of the button's text
+        // Define variable representing the button value
         var value = this.innerText;
 
         // next need to check if the value is a number or a '.'
         if (!isNaN(value) || value === ".") {
+    
+
             // if so, append this value to the display string
             display += value;
             // then set the value of the calculator screen html element to the value of the display string
@@ -44,23 +43,6 @@ for (var button of buttons) {
             screen.value = display;
         }
 
-        // next need to handle the multiply symbol - i.e. if value is 'x'
-        else if (value === "x") {
-            // first push the current display string to the equation array
-            equation.push(display);
-            // then push * to the equation array
-            equation.push("*");
-            // then refresh the display string to be an empty string (i.e. reset for a new value)
-            display = ""
-        }
-        // repeat the above step for the divide symbol
-        else if (value === "÷") {
-            // i.e. ÷ should push / to the equation array
-            equation.push(display)
-            equation.push("/");
-            display = "";
-        }
-
         // if the value is '=', perform the calculation
         else if (value === "=") {
             // push the current display string to the equation array
@@ -82,9 +64,9 @@ for (var button of buttons) {
                     current += nextValue;
                 } else if (symbol === "-") {
                     current -= nextValue;
-                } else if (symbol === "*") {
+                } else if (symbol === "x") {
                     current *= nextValue;
-                } else if (symbol === "/") {
+                } else if (symbol === "÷") {
                     current /= nextValue;
                 }
 
@@ -95,7 +77,6 @@ for (var button of buttons) {
             display = "";
         }
 
-        // otherwise (aka if value is + or -)
         else {
             // push the current display string to the array
             equation.push(display);
@@ -106,3 +87,10 @@ for (var button of buttons) {
         }
     })
 }
+
+// function updateScreen(value) {
+//     // Append current value to the display string
+//     display += value;
+//     // Set screen value to be equal to the display string
+//     screen.value = display;
+// }
