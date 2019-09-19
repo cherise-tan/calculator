@@ -27,7 +27,9 @@ for (var button of buttons) {
             equation.push(display, value);
             display = "";
         }
+        console.log(equation);
     })
+
 }
 
 function resetCalculator() {
@@ -36,16 +38,12 @@ function resetCalculator() {
 }
 
 function calculate(equation) {
-    // set a variable to equal the first value in the equation array (i.e. current value)
-    var current = Number(equation[0]);
+    var current = Number(equation[0]); // Represents the first (i.e. current) number in the array
 
-    for (let i = 1; i < equation.length; i++) {
-        // the second value of the array will be the symbol (i.e. =/- etc)
-        var symbol = equation[i];
-        // the third value of the array will be the number that the first number is interacting with
-        var nextValue = Number(equation[i + 1]);
+    for (let i = 1; i < equation.length; i += 2) {
+        var symbol = equation[i]; // Represents the next symbol in the array
+        var nextValue = Number(equation[i + 1]); // Represents the next number in the array
 
-        // Handle equations based on symbol value     
         if (symbol === "+") {
             current += nextValue;
         } else if (symbol === "-") {
@@ -55,8 +53,6 @@ function calculate(equation) {
         } else if (symbol === "÷") {
             current /= nextValue;
         }
-
-        i++;
     }
 
     return current;
