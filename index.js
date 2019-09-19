@@ -1,8 +1,5 @@
-// Create an empty equation array - this will contain the equation to date
-var equation = [];
-
-// Create an empty display string - this is what will display on the calculator screen
-var display = "";
+var equation = []; // This will contain the equation to date
+var display = ""; // This is what will display on the calculator screen
 
 // Define html elements
 var buttons = document.getElementsByClassName("btn");
@@ -15,31 +12,27 @@ for (var button of buttons) {
         var value = this.innerText; // This represents the button's value
 
         if (!isNaN(value) || value === ".") {
-            display += value;
-            screen.value = display;
+            screen.value = display += value;
 
-        } else if (value === "AC") {
-            // Need to refresh the display screen and equation array
-            equation = [];
-            display = "";
+        } else if (value === "AC") { // Need to refresh the display screen and equation array
+            resetCalculator();
             screen.value = display;
 
         } else if (value === "=") {
-            // Push the current display string to the equation array
             equation.push(display);
-
-            var answer = calculate(equation);
-
-            screen.value = answer;
-            equation = [];
-            display = "";
+            screen.value = calculate(equation);
+            resetCalculator();
 
         } else { // aka if value is 'x' '÷' '-' or '+'
-            equation.push(display);
-            equation.push(value);
+            equation.push(display, value);
             display = "";
         }
     })
+}
+
+function resetCalculator() {
+    equation = [];
+    display = "";
 }
 
 function calculate(equation) {
