@@ -26,16 +26,21 @@ for (var button of buttons) {
             screen.value = display;
         }
         // if the value is 'AC'
-        else {
-            
+        else if (value === "AC") {
+            // need to reset both the equation array and the display string
+            equation = [];
+            display = "";
+            // then need to display the new empty display string on the calculator screen
+            screen.value = display;
+        }
+        // if the value is 'CE'
+        else if (value === "CE") {
+            // need to clear the display screen (aka delete last entry) but leave the equation array intact
+            display = "";
+            // then display new empty display string on the calculator screen
+            screen.value = display;
         }
 
-
-        // need to reset both the equation array and the display string
-        // then need to display the new empty display string on the calculator screen
-        // if the value is 'CE'
-        // need to clear the display screen (aka delete last entry) but leave the equation array intact
-        // then display new empty display string on the calculator screen
         // next need to handle the multiply symbol - i.e. if value is 'x'
         // first push the current display string to the equation array
         // then push * to the equation array
