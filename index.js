@@ -1,8 +1,18 @@
 // Create an empty equation array - this will contain the equation to date
+var equation = [];
 
 // Create an empty display string - this is what will display on the calculator screen
+var display = "";
 
 // Use jquery to select all element called 'button'
+var buttons = document.getElementsByClassName("btn");
+
+for (var button of buttons){
+    button.addEventListener("click", function() {
+        console.log(this.innerText);
+    })
+}
+
 // Add an event handler to the buttons, listening for click
 // Specify an event handler function to:
     // first define a variable and assign it to the value of the button's text
