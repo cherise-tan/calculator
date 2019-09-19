@@ -24,11 +24,6 @@ for (var button of buttons) {
             display = "";
             screen.value = display;
 
-        } else if (value === "CE") {
-            // Need to clear the display screen (aka delete last entry) but leave the equation array intact
-            display = "";
-            screen.value = display;
-
         } else if (value === "=") {
             // Push the current display string to the equation array
             equation.push(display);
