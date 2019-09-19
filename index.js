@@ -7,6 +7,9 @@ var display = "";
 // Select all elements called 'button'
 var buttons = document.getElementsByClassName("btn");
 
+// Define screen element
+var screen = document.getElementById("screen");
+
 // Add an event handler to the buttons, listening for click
 for (var button of buttons) {
     // Specify an event handler function to:
@@ -16,15 +19,18 @@ for (var button of buttons) {
 
         // next need to check if the value is a number or a '.'
         if (!isNaN(value) || value === ".") {
-            console.log("im a number");
+            // if so, append this value to the display string
+            display += value;
+            // then set the value of the calculator screen html element to the value of the display string
+            // might want to consider truncating the string if the user attempts to enter too many digits
+            screen.value = display;
         }
-        else {
-            console.log("not a number");
-        }
-        // if so, append this value to the display string
-        // then set the value of the calculator screen html element to the value of the display string
-        // might want to consider truncating the string if the user attempts to enter too many digits
         // if the value is 'AC'
+        else {
+            
+        }
+
+
         // need to reset both the equation array and the display string
         // then need to display the new empty display string on the calculator screen
         // if the value is 'CE'
