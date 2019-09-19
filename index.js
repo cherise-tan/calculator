@@ -95,6 +95,14 @@ for (var button of buttons) {
             display = "";
         }
 
-
+        // otherwise (aka if value is + or -)
+        else {
+            // push the current display string to the array
+            equation.push(display);
+            // push the current value to the array
+            equation.push(value);
+            // reset the display string
+            display = "";
+        }
     })
 }
