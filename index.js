@@ -25,6 +25,7 @@ for (var button of buttons) {
             // might want to consider truncating the string if the user attempts to enter too many digits
             screen.value = display;
         }
+
         // if the value is 'AC'
         else if (value === "AC") {
             // need to reset both the equation array and the display string
@@ -33,6 +34,7 @@ for (var button of buttons) {
             // then need to display the new empty display string on the calculator screen
             screen.value = display;
         }
+
         // if the value is 'CE'
         else if (value === "CE") {
             // need to clear the display screen (aka delete last entry) but leave the equation array intact
@@ -42,13 +44,31 @@ for (var button of buttons) {
         }
 
         // next need to handle the multiply symbol - i.e. if value is 'x'
-        // first push the current display string to the equation array
-        // then push * to the equation array
-        // then refresh the display string to be an empty string (i.e. reset for a new value)
+        else if (value === "x") {
+            // first push the current display string to the equation array
+            equation.push(display);
+            // then push * to the equation array
+            equation.push("*");
+            // then refresh the display string to be an empty string (i.e. reset for a new value)
+            display = ""
+        }
         // repeat the above step for the divide symbol
-        // i.e. ÷ should push / to the equation array
+        else if (value === "÷") {
+              // i.e. ÷ should push / to the equation array
+            equation.push(display)
+            equation.push("/");
+            display = "";
+        }
+      
         // if the value is '=', perform the calculation
         // push the current display string to the equation array
+
+
+
+
+        console.log(equation);
+
+
 
         // set a variable to equal the first value in the equation array (i.e. current value)
         // loop through the rest of the array
